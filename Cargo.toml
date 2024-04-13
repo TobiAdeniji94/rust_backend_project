@@ -1,8 +1,27 @@
 [package]
-name = "rust-project"
+name = "rust_project"
 version = "0.1.0"
 edition = "2021"
+authors = ["Tobi Adeniji"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
+[lib]
+# name = "lib"
+path = "src/lib.rs"
+
+[[bin]]
+name = "rust_project"
+path = "src/main.rs"
+
 [dependencies]
+actix-web = "4"
+actix-server = "2.3.0"
+tokio = { version = "1", features = ["full"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+config = "0.14.0"
+sqlx = { version = "0.7.4", features = ["runtime-tokio", "tls-rustls", "macros", "postgres", "uuid", "chrono", "migrate"] }
+
+[dev-dependencies]
+reqwest = "0.12.3"
